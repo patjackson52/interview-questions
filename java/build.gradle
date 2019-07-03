@@ -1,8 +1,10 @@
 apply plugin: 'java'
+apply plugin: 'kotlin'
 
 test {
     useJUnitPlatform()
 }
 dependencies {
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
     testImplementation('org.junit.jupiter:junit-jupiter:5.5.0')
 }
