@@ -1,0 +1,39 @@
+version: 2.1
+
+references:
+
+  executors:
+  android_executor:
+    docker:
+      - image: circleci/android:api-28
+    environment:
+      TERM: dumb
+      _JAVA_OPTIONS: '-Xms1024m -Xmx2048m'
+      GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xms1024m -Xmx2048m -XX:+HeapDumpOnOutOfMemoryError" -Dkotlin.compiler.execution.strategy="in-process" -Dorg.gradle.daemon=false'
+      ANDROID_HOME: /opt/android/sdk
+      ADB_INSTALL_TIMEOUT: 10
+
+
+jobs:
+  build:
+    executor: android_executor
+    steps:
+      - checkout
+      - run:
+          name: Build and Run JVM Unit Tests
+          command: ./gradlew build
+      - store_artifacts:
+          path: java/build/outputs/reports/
+      - store_test_results:
+          path: java/build/test-results
+      
+workflows:
+  build_all_platforms:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - /^feature.*/
+                - /^bugfix.*/
+                - master

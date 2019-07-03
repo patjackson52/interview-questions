@@ -1,0 +1,2 @@
+include ':java', ':kotlin'
+enableFeaturePreview("GRADLE_METADATA")
