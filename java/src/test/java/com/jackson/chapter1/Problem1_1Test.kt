@@ -16,6 +16,12 @@ class Problem1_1Test {
     fun `Get product of all other elements - kotlin (1)`() {
         test1(::createProductSum)
     }
+
+    @Test
+    fun `Get product of all other elements, no div - kotlin (1)`() {
+        test1(::createProductSumWithoutDiv)
+    }
+
     @Test
     fun `Get product of all other elements - java (2)`() {
         test2(Problem1_1::createProductArray)
@@ -24,6 +30,11 @@ class Problem1_1Test {
     @Test
     fun `Get product of all other elements - kotlin (2)`() {
         test2(::createProductSum)
+    }
+
+    @Test
+    fun `Get product of all other elements, no div- kotlin (2)`() {
+        test2(::createProductSumWithoutDiv)
     }
 
     private fun test1(f: ((IntArray) -> IntArray)) {
