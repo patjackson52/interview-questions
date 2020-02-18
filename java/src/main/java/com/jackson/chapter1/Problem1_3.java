@@ -2,6 +2,11 @@ package com.jackson.chapter1;
 
 public class Problem1_3 {
 
+    /**
+     * Kadane's solution - computes in one pass
+     * Time complexity: O(n)
+     * Space complexity: O(1)
+     */
     public static int maxSubarraySum(int[] array) {
         int maxEndingHere = 0;
         int maxSoFar = 0;
