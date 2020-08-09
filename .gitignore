@@ -1,3 +1,4 @@
+java/out
 *.iml
 .gradle
 /local.properties
