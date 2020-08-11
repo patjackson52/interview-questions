@@ -11,6 +11,16 @@ class InterweaveTwoLists {
 
         val result = interweaveTwoLists(list1, list2)
 
-        assertEquals(linkedListOf(1,4,2,5,3,6), result)
+        assertEquals(linkedListOf(1, 4, 2, 5, 3, 6), result)
+    }
+
+    @Test
+    fun interweaveTwoListsDiffSize() {
+        val list1 = linkedListOf(1, 2, 3, 4)
+        val list2 = linkedListOf(9, 8, 7, 6, 5)
+
+        val result = interweaveTwoLists(list1, list2)
+
+        assertEquals(linkedListOf(1, 9, 2, 8, 3, 7, 4, 6, 5), result)
     }
 }

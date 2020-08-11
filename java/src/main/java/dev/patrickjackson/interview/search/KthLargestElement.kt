@@ -1,6 +1,5 @@
 package dev.patrickjackson.interview.search
 
-
 /*
 
 # Find the kth largest value in an array

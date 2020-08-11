@@ -8,16 +8,16 @@ import org.junit.jupiter.api.Test
 /**
  *
  [1,2,3]
-    1
-   / \
+ 1
+ / \
  2    3
 
  [1, null, 2, null, 3]
-    1
-     \
-      2
-       \
-        3
+ 1
+ \
+ 2
+ \
+ 3
  */
 class IntTreeSerializerTest {
 
@@ -36,4 +36,3 @@ class IntTreeSerializerTest {
         assertEquals(3, root?.right?.value)
     }
 }
-

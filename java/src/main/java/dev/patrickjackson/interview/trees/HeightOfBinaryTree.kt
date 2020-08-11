@@ -1,7 +1,6 @@
 package dev.patrickjackson.interview.trees
 
-import java.util.*
-
+import java.util.ArrayDeque
 
 /*
  TODO find example of finding height of tree

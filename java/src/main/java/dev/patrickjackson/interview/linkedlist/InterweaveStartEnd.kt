@@ -10,6 +10,11 @@ package dev.patrickjackson.interview.linkedlist
  * 2. reverse 2nd list
  * 3. interleave
  */
-fun interweaveFrontRear(linkedList: LinkedList<Int>): LinkedList<Int> {
-    return LinkedList()
+fun interweaveStartEnd(linkedList: LinkedList<Int>): LinkedList<Int> {
+    val secondHalf = findNodeBeforeMiddle(linkedList)
+    val secondHead = secondHalf?.next
+    secondHalf?.next = null
+    val reversed = reverse(LinkedList(secondHead))
+    val result = interweaveTwoLists(linkedList, reversed)
+    return result
 }

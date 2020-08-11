@@ -1,6 +1,6 @@
 package dev.patrickjackson.interview.trees
 
-import java.util.*
+import java.util.LinkedList
 
 /**
 Serialization is the process of converting a data structure or object into a sequence of bits so
@@ -15,9 +15,9 @@ Example:
 
 You may serialize the following tree:
 
-    1
-   / \
-  2   3
+ 1
+ / \
+ 2   3
  / \
 4   5
 
@@ -32,7 +32,7 @@ deserialize algorithms should be stateless.
 https://leetcode.com/explore/learn/card/data-structure-tree/133/conclusion/995/
  */
 
-class IntTreeSerializer() {
+class IntTreeSerializer {
 
     fun serialize(root: IntTreeNode?): String =
         serializeHelper(root, "")
@@ -44,17 +44,16 @@ class IntTreeSerializer() {
     }
 
     private fun serializeHelper(root: IntTreeNode?, str: String): String =
-            if (root == null) {
-                str + "null,"
-            } else {
-                var result = str + root.`val` + ","
-                result = serializeHelper(root.left, result)
-                serializeHelper(root.right, result)
-            }
-
+        if (root == null) {
+            str + "null,"
+        } else {
+            var result = str + root.`val` + ","
+            result = serializeHelper(root.left, result)
+            serializeHelper(root.right, result)
+        }
 
     private fun deserializeHelper(values: MutableList<String>): IntTreeNode? {
-        val nodeVal = values[0]!!
+        val nodeVal = values[0]
         values.removeAt(0)
         if (nodeVal == "null") return null
 

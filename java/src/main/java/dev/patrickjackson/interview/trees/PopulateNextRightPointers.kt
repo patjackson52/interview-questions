@@ -1,7 +1,6 @@
 package dev.patrickjackson.interview.trees
 
-import java.util.*
-
+import java.util.LinkedList
 
 /**
 You are given a perfect binary tree where all leaves are on the same level, and every parent has two children. The binary tree has the following definition:
@@ -49,7 +48,6 @@ fun connect(root: IntTreeNode?): IntTreeNode? {
                 queue.add(node.left!!)
             if (node.right != null)
                 queue.add(node.right!!)
-
         }
     }
     return root

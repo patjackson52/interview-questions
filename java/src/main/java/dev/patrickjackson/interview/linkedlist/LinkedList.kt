@@ -5,8 +5,8 @@ import java.lang.IllegalStateException
 class LinkedList<T>(var head: LinkedListNode<T>? = null) {
 
     data class LinkedListNode<T>(
-            val value: T,
-            var next: LinkedListNode<T>? = null
+        val value: T,
+        var next: LinkedListNode<T>? = null
     )
 
     /**
@@ -62,7 +62,7 @@ class LinkedList<T>(var head: LinkedListNode<T>? = null) {
         var prev = head
         var curr = head
         var ct = 0
-        while(curr?.next != null && ct < index - 1) {
+        while (curr?.next != null && ct < index - 1) {
             ct++
             curr = curr.next
             prev = curr
@@ -70,7 +70,7 @@ class LinkedList<T>(var head: LinkedListNode<T>? = null) {
 
         if (prev != null) {
             prev.next = LinkedListNode(value, prev.next)
-        } else if (index == ct){
+        } else if (index == ct) {
             head = LinkedListNode(value, curr?.next)
         }
     }

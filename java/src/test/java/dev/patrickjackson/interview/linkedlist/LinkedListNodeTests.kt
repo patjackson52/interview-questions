@@ -3,12 +3,8 @@ package dev.patrickjackson.interview.linkedlist
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
-import java.lang.IllegalStateException
 
 class LinkedListNodeTests {
-
-
 
     @Test
     fun getAtIndex() {
@@ -73,8 +69,6 @@ class LinkedListNodeTests {
         assertEquals(100, linkedList.get(0)?.value)
     }
 
-
-
     @Test
     fun addAtIndexInvalidIgnored() {
         val linkedList = LinkedList<Int>()
@@ -104,7 +98,7 @@ class LinkedListNodeTests {
 
     @Test
     fun linkedListOfCreatesList() {
-        val linkedList = linkedListOf(1,2,3,4)
+        val linkedList = linkedListOf(1, 2, 3, 4)
 
         var curr = linkedList.head
         (1..4).forEach {

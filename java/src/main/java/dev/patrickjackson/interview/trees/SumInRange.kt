@@ -1,6 +1,6 @@
 package dev.patrickjackson.interview.trees
 
-import java.util.*
+import java.util.ArrayDeque
 
 /*
 From FB phone screen 7/2/2020
@@ -70,15 +70,13 @@ fun inRangeHelper(root: TreeNode?, low: Int, high: Int) {
  * DFS with recursion
  */
 fun rangeSumBST(root: IntTreeNode?, L: Int, R: Int): Int =
-        when {
-            root == null -> 0
-            root.value < L -> rangeSumBST(root.right, L, R)
-            root.value > R -> rangeSumBST(root.left, L, R)
-            else ->
-                root.value + rangeSumBST(root.left, L, R) + rangeSumBST(root.right, L, R)
-        }
-
-
+    when {
+        root == null -> 0
+        root.value < L -> rangeSumBST(root.right, L, R)
+        root.value > R -> rangeSumBST(root.left, L, R)
+        else ->
+            root.value + rangeSumBST(root.left, L, R) + rangeSumBST(root.right, L, R)
+    }
 
 /**
  * DFS with iteration & stack
