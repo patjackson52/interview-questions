@@ -9,7 +9,7 @@ package dev.patrickjackson.interview.linkedlist
 
  https://leetcode.com/problems/middle-of-the-linked-list/
  */
-fun <T> findMiddleNode(linkedList: LinkedList<T>): LinkedList.LinkedListNode<T>? {
+fun <T> findMiddleNode(linkedList: LinkedList<T>): LinkedList.Node<T>? {
     var fast = linkedList.head?.next
     var slow = linkedList.head
     while (fast != null) {
@@ -24,10 +24,10 @@ fun <T> findMiddleNode(linkedList: LinkedList<T>): LinkedList.LinkedListNode<T>?
  * Returns the node BEFORE the center.
  * Useful for creating two lists.
  */
-fun <T> findNodeBeforeMiddle(linkedList: LinkedList<T>): LinkedList.LinkedListNode<T>? {
+fun <T> findNodeBeforeMiddle(linkedList: LinkedList<T>): LinkedList.Node<T>? {
     var fast = linkedList.head?.next
     var slow = linkedList.head
-    var slowPrev: LinkedList.LinkedListNode<T>? = null
+    var slowPrev: LinkedList.Node<T>? = null
     while (fast != null) {
         fast = fast.next?.next
         slowPrev = slow

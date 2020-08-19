@@ -2,11 +2,11 @@ package dev.patrickjackson.interview.linkedlist
 
 import java.lang.IllegalStateException
 
-class LinkedList<T>(var head: LinkedListNode<T>? = null) {
+class LinkedList<T>(var head: Node<T>? = null) {
 
-    data class LinkedListNode<T>(
+    data class Node<T>(
         val value: T,
-        var next: LinkedListNode<T>? = null
+        var next: Node<T>? = null
     )
 
     /**
@@ -14,8 +14,8 @@ class LinkedList<T>(var head: LinkedListNode<T>? = null) {
      * If the index is invalid, throw IllegalStateException
      * Time Complexity O(N)
      */
-    fun get(index: Int): LinkedListNode<T>? {
-        var curr: LinkedListNode<T>? = head
+    fun get(index: Int): Node<T>? {
+        var curr: Node<T>? = head
         repeat(index) {
             curr = curr?.next ?: throw IllegalStateException("Node not found")
         }
@@ -28,7 +28,7 @@ class LinkedList<T>(var head: LinkedListNode<T>? = null) {
      * Time Complexity: O(1)
      */
     fun addAtHead(value: T) {
-        val node = LinkedListNode(value)
+        val node = Node(value)
         node.next = head
         head = node
     }
@@ -39,9 +39,9 @@ class LinkedList<T>(var head: LinkedListNode<T>? = null) {
      */
     fun addAtTail(value: T) {
         if (head == null) {
-            head = LinkedListNode(value)
+            head = Node(value)
         }
-        var prev: LinkedListNode<T>? = null
+        var prev: Node<T>? = null
         var curr = head
 
         while (curr != null) {
@@ -49,7 +49,7 @@ class LinkedList<T>(var head: LinkedListNode<T>? = null) {
             curr = curr.next
         }
         if (prev != null)
-            prev.next = LinkedListNode(value)
+            prev.next = Node(value)
     }
 
     /**
@@ -59,6 +59,10 @@ class LinkedList<T>(var head: LinkedListNode<T>? = null) {
      * Time Complexity: O(n)
      */
     fun addAtIndex(index: Int, value: T) {
+        if (index == 0) {
+            head = Node(value, head)
+            return
+        }
         var prev = head
         var curr = head
         var ct = 0
@@ -69,9 +73,9 @@ class LinkedList<T>(var head: LinkedListNode<T>? = null) {
         }
 
         if (prev != null) {
-            prev.next = LinkedListNode(value, prev.next)
+            prev.next = Node(value, prev.next)
         } else if (index == ct) {
-            head = LinkedListNode(value, curr?.next)
+            head = Node(value, curr?.next)
         }
     }
 

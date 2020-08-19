@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Test
 
-class LinkedListNodeTests {
+class NodeTests {
 
     @Test
     fun getAtIndex() {
@@ -79,6 +79,15 @@ class LinkedListNodeTests {
     }
 
     @Test
+    fun addAtIndex0() {
+        val linkedList = linkedListOf(1, 2, 3)
+
+        linkedList.addAtIndex(0, 100)
+
+        assertEquals(100, linkedList.get(0)?.value)
+    }
+
+    @Test
     fun deleteAtIndex() {
         val linkedList = linkedListOfSize(10)
 
@@ -141,20 +150,20 @@ class LinkedListNodeTests {
 
 fun linkedListOfSize(size: Int): LinkedList<Int> {
     if (size == 0) return LinkedList()
-    val head = LinkedList.LinkedListNode(0)
-    var curr: LinkedList.LinkedListNode<Int>? = head
+    val head = LinkedList.Node(0)
+    var curr: LinkedList.Node<Int>? = head
     (1 until size).forEach {
-        curr?.next = LinkedList.LinkedListNode(it)
+        curr?.next = LinkedList.Node(it)
         curr = curr?.next
     }
     return LinkedList(head)
 }
 
 fun <T> linkedListOf(vararg values: T): LinkedList<T> {
-    val head = LinkedList.LinkedListNode(values[0])
-    var curr: LinkedList.LinkedListNode<T>? = head
+    val head = LinkedList.Node(values[0])
+    var curr: LinkedList.Node<T>? = head
     (1 until values.size).forEach {
-        curr?.next = LinkedList.LinkedListNode(values[it])
+        curr?.next = LinkedList.Node(values[it])
         curr = curr?.next
     }
     return LinkedList(head)
