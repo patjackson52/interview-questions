@@ -5,7 +5,7 @@ import java.lang.IllegalStateException
 class LinkedList<T>(var head: Node<T>? = null) {
 
     data class Node<T>(
-        val value: T,
+        val value: T? = null,
         var next: Node<T>? = null
     )
 
