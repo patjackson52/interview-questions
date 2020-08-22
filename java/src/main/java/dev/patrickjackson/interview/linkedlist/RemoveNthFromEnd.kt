@@ -11,11 +11,11 @@ Could you do this in one pass?
 
 https://leetcode.com/problems/remove-nth-node-from-end-of-list/
  */
-fun <T> removeNthFromEnd(head: LinkedList.Node<T>?, n: Int): LinkedList.Node<T>? {
-    val dummy = LinkedList.Node<T>()
+fun removeNthFromEnd(head: LinkedList.Node<Int>?, n: Int): LinkedList.Node<Int>? {
+    val dummy = LinkedList.Node(0)
     dummy.next = head
-    var first: LinkedList.Node<T>? = dummy
-    var second: LinkedList.Node<T>? = dummy
+    var first: LinkedList.Node<Int>? = dummy
+    var second: LinkedList.Node<Int>? = dummy
 
     repeat(n + 1) { first = first?.next }
 

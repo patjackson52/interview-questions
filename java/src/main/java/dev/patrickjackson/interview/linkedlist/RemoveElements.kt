@@ -5,10 +5,10 @@ package dev.patrickjackson.interview.linkedlist
 
  https://leetcode.com/problems/remove-linked-list-elements/
  */
-fun <T> removeElements(head: LinkedList.Node<T>?, value: Int): LinkedList.Node<T>? {
-    val sentinel = LinkedList.Node<T>()
+fun removeElements(head: LinkedList.Node<Int>?, value: Int): LinkedList.Node<Int>? {
+    val sentinel = LinkedList.Node<Int>(0)
     sentinel.next = head
-    var prev: LinkedList.Node<T>? = sentinel
+    var prev: LinkedList.Node<Int>? = sentinel
     var curr = head
     while (curr != null) {
         if (curr.value == value)
