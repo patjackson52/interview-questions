@@ -7,7 +7,8 @@ class DoublyLinkedList<T>(var head: Node<T>? = null) {
     data class Node<T>(
         val value: T? = null,
         var next: Node<T>? = null,
-        var prev: Node<T>? = null
+        var prev: Node<T>? = null,
+        var child: Node<T>? = null
     )
 
     /**
