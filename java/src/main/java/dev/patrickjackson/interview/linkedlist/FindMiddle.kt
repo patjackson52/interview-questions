@@ -10,9 +10,9 @@ package dev.patrickjackson.interview.linkedlist
  https://leetcode.com/problems/middle-of-the-linked-list/
  */
 fun <T> findMiddleNode(linkedList: LinkedList<T>): LinkedList.Node<T>? {
-    if (linkedList.head == null) return null
-    var slow = linkedList.head
-    var fast = linkedList.head
+    linkedList.head ?: return null
+    var slow: LinkedList.Node<T>? = linkedList.head
+    var fast: LinkedList.Node<T>? = linkedList.head
 
     while (fast?.next != null) {
         fast = fast.next?.next
